@@ -1,0 +1,39 @@
+﻿@model IEnumerable<QLCHVT.Models.NhapKho>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayLapPhieu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nhanvien.HoNV)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayLapPhieu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nhanvien.HoNV)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaNK }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaNK }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaNK })
+        </td>
+    </tr>
+}
+
+</table>

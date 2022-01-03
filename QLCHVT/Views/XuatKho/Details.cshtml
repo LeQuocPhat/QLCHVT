@@ -1,0 +1,50 @@
+﻿@model QLCHVT.Models.XuatKho
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>XuatKho</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayLapPhieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayLapPhieu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayGiaoHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayGiaoHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nhanvien.HoNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nhanvien.HoNV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaXK }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

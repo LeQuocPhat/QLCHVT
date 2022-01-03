@@ -1,0 +1,58 @@
+﻿@model QLCHVT.Models.VatTu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VatTu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenVT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenVT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Donvitinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donvitinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dongia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dongia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhVT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhVT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiVatTu.TenLoaiVT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiVatTu.TenLoaiVT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaVT }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
