@@ -170,6 +170,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChiTietNhapKhoController.cs" />
+    <Compile Include="Controllers\formNKController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiVatTuController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -190,6 +192,7 @@
     <Compile Include="Models\ChiTietXuatKho.cs">
       <DependentUpon>ModelQLCHVT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\formNK.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ImageHelper.cs" />
     <Compile Include="Models\KhachHang.cs">
@@ -229,6 +232,7 @@
     <Compile Include="Models\VatTu.cs">
       <DependentUpon>ModelQLCHVT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Models\XuatKho.cs">
       <DependentUpon>ModelQLCHVT.tt</DependentUpon>
     </Compile>
@@ -236,10 +240,13 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-chosen.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen-sprite%402x.png" />
+    <Content Include="Content\chosen-sprite.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -2225,7 +2232,11 @@
     <Content Include="Models\ModelQLCHVT.edmx.diagram">
       <DependentUpon>ModelQLCHVT.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\bootstrap-chosen.scss" />
+    <Content Include="Content\bootstrap-chosen.less" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -2296,6 +2307,13 @@
     <Content Include="Views\Nhanvien\Details.cshtml" />
     <Content Include="Views\Nhanvien\Edit.cshtml" />
     <Content Include="Views\Nhanvien\Index.cshtml" />
+    <Content Include="Views\formNK\AddOrder.cshtml" />
+    <Content Include="Views\formNK\Index.cshtml" />
+    <Content Include="Views\ChiTietNhapKho\Create.cshtml" />
+    <Content Include="Views\ChiTietNhapKho\Delete.cshtml" />
+    <Content Include="Views\ChiTietNhapKho\Details.cshtml" />
+    <Content Include="Views\ChiTietNhapKho\Edit.cshtml" />
+    <Content Include="Views\ChiTietNhapKho\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

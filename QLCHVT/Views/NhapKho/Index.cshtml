@@ -29,9 +29,11 @@
             @Html.DisplayFor(modelItem => item.Nhanvien.HoNV)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaNK }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaNK }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaNK })
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaNK }) |
+            @Html.Display("Details")
+            <a class="btn btn-info" href="@Url.Action("Details","ChiTietNhapKho",new {id=item.MaNK})">Details</a> |
+           
+            @Html.ActionLink("Delete", "Delete", new { id = item.MaNK })
         </td>
     </tr>
 }

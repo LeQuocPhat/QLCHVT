@@ -190,7 +190,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                    with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
                         <li class="nav-header">User</li>
                         <li class="nav-item">
                             <a href="../calendar.html" class="nav-link">
@@ -239,6 +239,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="@Url.Action("AddOrder","formNK")" class="nav-link">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>
+                                    Đơn nhập kho
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="@Url.Action("Index","XuatKho")" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
@@ -247,7 +255,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../kanban.html" class="nav-link">
+                            <a href="@Url.Action("Index","ChiTietNhapKho")" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
                                     Chi tiết nhập kho
@@ -284,7 +292,7 @@
                             </a>
                         </li>
 
-                </nav>
+</nav>
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
