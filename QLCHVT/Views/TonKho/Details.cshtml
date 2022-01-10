@@ -1,0 +1,66 @@
+﻿@model QLCHVT.Models.TonKho
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TonKho</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaNhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaNhap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaXuat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaXuat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SLNhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLNhap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SLXuat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLXuat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SLCuoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLCuoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VatTu.TenVT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VatTu.TenVT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

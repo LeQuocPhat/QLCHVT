@@ -171,12 +171,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChiTietNhapKhoController.cs" />
+    <Compile Include="Controllers\ChiTietXuatKhoesController.cs" />
     <Compile Include="Controllers\formNKController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiVatTuController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NhanvienController.cs" />
     <Compile Include="Controllers\NhapKhoController.cs" />
+    <Compile Include="Controllers\TonKhoController.cs" />
     <Compile Include="Controllers\VatTuController.cs" />
     <Compile Include="Controllers\XuatKhoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2316,6 +2318,16 @@
     <Content Include="Views\ChiTietNhapKho\Edit.cshtml" />
     <Content Include="Views\ChiTietNhapKho\Index.cshtml" />
     <Content Include="Views\formNK\SelectST.cshtml" />
+    <Content Include="Views\TonKho\Create.cshtml" />
+    <Content Include="Views\TonKho\Delete.cshtml" />
+    <Content Include="Views\TonKho\Details.cshtml" />
+    <Content Include="Views\TonKho\Edit.cshtml" />
+    <Content Include="Views\TonKho\Index.cshtml" />
+    <Content Include="Views\ChiTietXuatKhoes\Create.cshtml" />
+    <Content Include="Views\ChiTietXuatKhoes\Delete.cshtml" />
+    <Content Include="Views\ChiTietXuatKhoes\Details.cshtml" />
+    <Content Include="Views\ChiTietXuatKhoes\Edit.cshtml" />
+    <Content Include="Views\ChiTietXuatKhoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

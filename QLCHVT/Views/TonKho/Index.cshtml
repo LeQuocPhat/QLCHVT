@@ -1,0 +1,63 @@
+﻿@model IEnumerable<QLCHVT.Models.TonKho>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tồn kho</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaNhap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaXuat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SLNhap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SLXuat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SLCuoi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VatTu.TenVT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaNhap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaXuat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SLNhap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SLXuat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SLCuoi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VatTu.TenVT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,72 @@
+﻿@model QLCHVT.Models.TonKho
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TonKho</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaNhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaNhap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaXuat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaXuat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SLNhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLNhap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SLXuat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLXuat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SLCuoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLCuoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VatTu.TenVT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VatTu.TenVT)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

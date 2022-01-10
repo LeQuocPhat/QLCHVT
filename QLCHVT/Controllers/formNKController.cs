@@ -105,19 +105,47 @@ namespace QLCHVT.Controllers
                     db.SaveChanges();
                 
                 string mank = form["MaNK"];
+                List<TonKho> listTK = db.TonKhoes.ToList();
                 
                 foreach (var item in giohang)
                 {
                     ChiTietNhapKho CTNK = new ChiTietNhapKho();
+                    TonKho itmeTK = listTK.FirstOrDefault(t => t.MaVT == item.MaVT);
+                    //TonKho tonkho = new TonKho();
                     CTNK.MaNK = mank;
                     CTNK.MaVT = item.MaVT;
                     CTNK.Soluong = (short?)item.SoLuongt;
                     CTNK.DongiaNhap = (float?)item.DonGiaNhapt;
                     //this.Insert(CTNK);
+                    //themTonKho
                     db.ChiTietNhapKhoes.Add(CTNK);
                     db.SaveChanges();
+                    if (itmeTK != null )
+                    {
+                        itmeTK.MaVT = itmeTK.MaVT;
+                        itmeTK.NgayLap = itmeTK.NgayLap;
+                        itmeTK.GiaNhap = (float?)item.DonGiaNhapt;
+                        itmeTK.GiaXuat = itmeTK.GiaXuat;
+                        itmeTK.SLNhap +=  item.SoLuongt;
+                        int sl = (int)itmeTK.SLNhap;
+                        itmeTK.SLCuoi = sl - itmeTK.SLXuat;
+                        //itmeTK.SLCuoi = sl - 1;
+                        db.Entry(itmeTK).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        TonKho tonkhoIN = new TonKho();
+                        tonkhoIN.MaVT = item.MaVT;
+                        tonkhoIN.NgayLap = form["NgayLapPhieu"];
+                        tonkhoIN.GiaNhap = (float?)item.DonGiaNhapt;
+                        tonkhoIN.SLCuoi = item.SoLuongt;
+                        tonkhoIN.SLNhap = item.SoLuongt;
+                        db.TonKhoes.Add(tonkhoIN);
+                        db.SaveChanges();
+                    }
+                    
                 }
-                
                 return RedirectToAction("Index");
             }
             return View();
