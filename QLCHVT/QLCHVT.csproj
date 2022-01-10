@@ -183,6 +183,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\ChiTietNhapKho.cs">
       <DependentUpon>ModelQLCHVT.tt</DependentUpon>
     </Compile>
@@ -2314,6 +2315,7 @@
     <Content Include="Views\ChiTietNhapKho\Details.cshtml" />
     <Content Include="Views\ChiTietNhapKho\Edit.cshtml" />
     <Content Include="Views\ChiTietNhapKho\Index.cshtml" />
+    <Content Include="Views\formNK\SelectST.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

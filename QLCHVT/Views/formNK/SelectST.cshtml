@@ -1,0 +1,61 @@
+﻿@model IEnumerable<QLCHVT.Models.VatTu>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Chọn vật tư</h2>
+
+<table class="table content-wrapper" style="margin:0">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenVT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Donvitinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dongia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhVT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiVatTu.TenLoaiVT)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenVT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donvitinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dongia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HinhVT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiVatTu.TenLoaiVT)
+            </td>
+            <td>
+                <a class="btn btn-sm glyphicon glyphicon-shopping-cart" href="@Url.Action("AddToForm", "formNK", new { MaSP = item.MaVT })">
+                    <span class="btn btn-info">Thêm vào đơn nhập</span>
+                </a>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.MaVT }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaVT }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaVT })*@
+            </td>
+        </tr>
+    }
+
+</table>
+
+
