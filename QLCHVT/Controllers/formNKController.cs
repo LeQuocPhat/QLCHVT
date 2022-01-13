@@ -146,6 +146,7 @@ namespace QLCHVT.Controllers
                     }
                     
                 }
+                Session["giohang"] = null;
                 return RedirectToAction("Index");
             }
             return View();

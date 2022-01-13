@@ -11,6 +11,7 @@ namespace QLCHVT.Models
         public string TenVT { get; set; }
         public int SoLuongt { get; set; }
         public double DonGiaNhapt { get; set; }
+        public double DonGiaBan { get; set; }
         public double ThanhTien
         {
             get

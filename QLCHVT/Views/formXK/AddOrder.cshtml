@@ -1,0 +1,101 @@
+﻿@model QLCHVT.Models.formXK
+
+
+<h2>Tạo đơn hàng</h2>
+
+
+@using (Html.BeginForm("AddOrder", "formXK", FormMethod.Post))
+{
+
+<div class="form-horizontal">
+
+    <hr />
+    <div class="form-group">
+        @Html.Label("NhanVien", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("NhanVien", (IEnumerable<SelectListItem>)ViewBag.NhanVien, "Chọn nhân viên", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaXK, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaXK, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaXK, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*start chọn sản phẩm*@
+    <table class="table table-bordered table-condensed">
+
+        <tr>
+            <th>Mã vật tư</th>
+            <th>Tên vật tư</th>
+            <th>Số lượng</th>
+            <th>Đơn giá bán</th>
+            @*<th>Thành tiền</th>*@
+            <th></th>
+        </tr>
+        @foreach (var item in ViewBag.GioHang)
+        {
+            <tr>
+                <td>@item.MaVT</td>
+                <td>@item.TenVT</td>
+                <td>
+                    <form action="" method="get">
+                        <input type="number" min=" 1" name="txtSoluong" id="txtSoluong" value="@item.SoLuongt" />
+                        @*<button type="submit" class="btn btn-primary"> Cập nhật</button>*@
+                        <input type="hidden" name="MaVt" id="MaVt" value="@item.MaVT" />
+                    </form>
+                </td>
+                <td>
+                    <input type="number" min=" 1" name="GiaBan" id="txtSoluong" value="123000" />
+                </td>
+                <td>
+                    <a class="btn btn-danger" onclick="return confirm('Xóa sản phẩm này')" href="@Url.Action("Delete", new { MaSP = item.MaVT })">Xóa</a>
+                </td>
+            </tr>
+        }
+
+        @*<tr>
+                <th></th>
+                <th>Tổng số lượng</th>
+                <th>@Model.Sum(c => c.SoLuong)</th>
+                <th>Tổng thành tiền</th>
+                <th>@Model.Sum(c => c.ThanhTien)</th>
+                <th></th>
+            </tr>*@
+
+    </table>
+    <a class="btn btn-info" href="@Url.Action("SelectST","formXK")">Chọn vật tư</a>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NgayLapPhieu, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.NgayLapPhieu, htmlAttributes: new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(model => model.NgayLapPhieu, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NgayGiaoHang, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.NgayGiaoHang, htmlAttributes: new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(model => model.NgayGiaoHang, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Thêm" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+
+
+
+}
+
+

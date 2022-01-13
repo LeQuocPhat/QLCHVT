@@ -24,16 +24,30 @@ namespace QLCHVT.Controllers
         // GET: ChiTietXuatKhoes/Details/5
         public ActionResult Details(string id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ChiTietXuatKho chiTietXuatKho = db.ChiTietXuatKhoes.Find(id);
-            if (chiTietXuatKho == null)
-            {
-                return HttpNotFound();
-            }
-            return View(chiTietXuatKho);
+            List<ChiTietXuatKho> ctxk = db.ChiTietXuatKhoes.ToList();
+            List<XuatKho> xuatkho = db.XuatKhoes.ToList();
+            List<VatTu> vattu = db.VatTus.ToList();
+            List<Nhanvien> nhanvien = db.Nhanviens.ToList();
+            var main = from h in xuatkho
+                       join k in nhanvien on h.MaNV equals k.MaNV
+                       where (h.MaXK == id)
+                       select new ViewModelXK
+                       {
+                           xuatkho = h, /*dịnh nghĩa ở viewmodel*/
+                           nhanvien = k,
+                       };
+            var sub = from c in ctxk
+                      join s in vattu on c.MaVT equals s.MaVT
+                      where (c.MaXK == id)
+                      select new ViewModelXK
+                      {
+                          ctxk = c,
+                          vattu = s,
+                          Thanhtien = Convert.ToDouble(c.DongiaBan * c.Soluong)
+                      };
+            ViewBag.Main = main;
+            ViewBag.Sub = sub;
+            return View();
         }
 
         // GET: ChiTietXuatKhoes/Create

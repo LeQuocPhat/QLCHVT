@@ -1,58 +1,76 @@
-﻿@model QLCHVT.Models.ChiTietXuatKho
+﻿@model IEnumerable<QLCHVT.Models.ViewModelXK>
 
-@{
-    ViewBag.Title = "Details";
-}
 
-<h2>Details</h2>
 
-<div>
-    <h4>ChiTietXuatKho</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Soluong)
-        </dt>
+<h2>Chi tiết đơn bán</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.Soluong)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DongiaBan)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DongiaBan)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Giamgia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Giamgia)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.XuatKho.MaKH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.XuatKho.MaKH)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.VatTu.TenVT)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VatTu.TenVT)
-        </dd>
-
-    </dl>
-</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    @foreach (var m in ViewBag.Main)
+    {
+<p>Số hóa đơn: @m.xuatkho.MaXK</p>
+    <p>Mã nhân viên:@m.nhanvien.HoNV @m.nhanvien.Ten  (@m.nhanvien.MaNV) </p>
+}
+    </p>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                STT
+            </th>
+            <th>
+                Tên vật tư
+            </th>
+
+            <th>
+                Số lượng
+            </th>
+            <th>
+                Đơn giá
+            </th>
+            <th>
+                Thành tiền
+            </th>
+
+            <th></th>
+        </tr>
+        @{
+            int i = 0;
+            double tongTien = 0;
+        }
+        @foreach (var item in ViewBag.Sub)
+        {
+            i++;
+            tongTien += item.Thanhtien;
+            <tr>
+                <td>
+                    @i
+                </td>
+                <td>
+                    @item.vattu.TenVT
+                </td>
+
+                <td>
+                    @item.ctxk.Soluong
+                </td>
+
+                <td>
+                    @item.ctxk.DongiaBan
+                </td>
+
+                <td>
+                    @string.Format("{0:0,###}", @item.Thanhtien)
+                </td>
+            </tr>
+        }
+        <tr>
+            <th colspan="5">Tổng tiền</th>
+            <th>@string.Format("{0:0,###}", @tongTien)</th>
+        </tr>
+
+    </table>
+
+    <div>
+        @Html.ActionLink("Back to List", "Index", "XuatKho")
+    </div>

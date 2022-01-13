@@ -173,6 +173,7 @@
     <Compile Include="Controllers\ChiTietNhapKhoController.cs" />
     <Compile Include="Controllers\ChiTietXuatKhoesController.cs" />
     <Compile Include="Controllers\formNKController.cs" />
+    <Compile Include="Controllers\formXKController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiVatTuController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -196,6 +197,7 @@
       <DependentUpon>ModelQLCHVT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\formNK.cs" />
+    <Compile Include="Models\formXK.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ImageHelper.cs" />
     <Compile Include="Models\KhachHang.cs">
@@ -236,6 +238,7 @@
       <DependentUpon>ModelQLCHVT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModel.cs" />
+    <Compile Include="Models\ViewModelXK.cs" />
     <Compile Include="Models\XuatKho.cs">
       <DependentUpon>ModelQLCHVT.tt</DependentUpon>
     </Compile>
@@ -2328,6 +2331,9 @@
     <Content Include="Views\ChiTietXuatKhoes\Details.cshtml" />
     <Content Include="Views\ChiTietXuatKhoes\Edit.cshtml" />
     <Content Include="Views\ChiTietXuatKhoes\Index.cshtml" />
+    <Content Include="Views\formXK\Index.cshtml" />
+    <Content Include="Views\formXK\AddOrder.cshtml" />
+    <Content Include="Views\formXK\SelectST.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
