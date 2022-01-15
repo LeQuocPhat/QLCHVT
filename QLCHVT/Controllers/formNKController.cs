@@ -15,6 +15,11 @@ namespace QLCHVT.Controllers
             // GET: formNK
         public ActionResult Index(string SearchString = "")
         {
+            //if(Session["getMaNK"] != null)
+            //{
+            //    NhapKho nhapkho = db.NhapKhoes.Find(Session["getMaNK"]);
+            //    return View(nhapkho);
+            //}
             if (SearchString != "")
             {
                 var nhapKhoes = db.NhapKhoes.Where(
@@ -102,10 +107,11 @@ namespace QLCHVT.Controllers
         public ActionResult AddOrder(FormCollection form)
         {
             
-            NhapKho NK = new NhapKho();
-            List<CartItem> giohang = Session["giohang"] as List<CartItem>;
+           
             if (ModelState.IsValid)
             {
+                 NhapKho NK = new NhapKho();
+            List<CartItem> giohang = Session["giohang"] as List<CartItem>;
                 
                     NK.MaNK = form["MaNK"];
                     //NK.MaNV = int.Parse(form["NhanVien"]);
@@ -157,6 +163,7 @@ namespace QLCHVT.Controllers
                     
                 }
                 Session["giohang"] = null;
+                //Session["getMaNK"] = form["MaNK"];
                 return RedirectToAction("Index");
             }
             return View();

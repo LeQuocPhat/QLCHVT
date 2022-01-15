@@ -10,7 +10,7 @@ using QLCHVT.Models;
 
 namespace QLCHVT.Controllers
 {
-    public class LoaiVatTuController : Controller
+    public class LoaiVatTuController : Controller   
     {
         private QLCHVTEntities db = new QLCHVTEntities();
 
@@ -22,7 +22,7 @@ namespace QLCHVT.Controllers
                 var loaivatTus = db.LoaiVatTus.Where(
                 x => x.TenLoaiVT.ToUpper().Contains(SearchString.ToUpper()));
                 return View(loaivatTus.ToList());
-            }
+            }       
             else
             {
                 return View(db.LoaiVatTus.ToList());

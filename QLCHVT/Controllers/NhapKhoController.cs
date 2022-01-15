@@ -119,8 +119,16 @@ namespace QLCHVT.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
+            var ctk = db.ChiTietNhapKhoes.Where(c=> c.MaNK == id).ToList();
+            foreach( var item in ctk)
+            {
+                db.ChiTietNhapKhoes.Remove(item);
+                db.SaveChanges();
+            }
             NhapKho nhapKho = db.NhapKhoes.Find(id);
+            //ChiTietNhapKho ctnk = db.ChiTietNhapKhoes.Find(id);
             db.NhapKhoes.Remove(nhapKho);
+            //db.ChiTietNhapKhoes.Remove(ctnk);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
