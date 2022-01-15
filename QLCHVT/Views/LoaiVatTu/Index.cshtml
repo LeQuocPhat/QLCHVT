@@ -4,11 +4,20 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Loại vật tư</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm())
+
+{
+    <p></p>
+    <div class="form-group form-inline" style=" width: max-content; margin-left: auto; transform: translateX(-286px)">
+        Tìm theo ten vật tư: @Html.TextBox("SearchString", "", new { @class = "Form-control" })
+        <input type="submit" value="Tìm" class="btn btn-primary" />
+    </div>
+}
 <table class="table">
     <tr>
         <th>
@@ -17,17 +26,18 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenLoaiVT)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaLoaiVT }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaLoaiVT }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaLoaiVT })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenLoaiVT)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaLoaiVT }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaLoaiVT }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaLoaiVT })
+            </td>
+        </tr>
+    }
 
 </table>

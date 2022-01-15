@@ -4,11 +4,20 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Danh sách đơn bán hàng</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm())
+
+{
+    <p></p>
+    <div class="form-group form-inline" style=" width: max-content; margin-left: auto; transform: translateX(-286px)">
+        Tìm theo MXK: @Html.TextBox("SearchString", "", new { @class = "Form-control" })
+        <input type="submit" value="Tìm" class="btn btn-primary" />
+    </div>
+}
 <table class="table">
     <tr>
         <th>
@@ -46,7 +55,7 @@
                 @Html.Display("Details")
                 <a class="btn btn-info" href="@Url.Action("Details","ChiTietXuatKhoes",new {id=item.MaXK})">Details</a> |
 
-     
+
 
 
                 @Html.ActionLink("Delete", "Delete", new { id = item.MaXK })

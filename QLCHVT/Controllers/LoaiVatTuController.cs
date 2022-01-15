@@ -15,9 +15,18 @@ namespace QLCHVT.Controllers
         private QLCHVTEntities db = new QLCHVTEntities();
 
         // GET: LoaiVatTu
-        public ActionResult Index()
+        public ActionResult Index(string SearchString = "")
         {
-            return View(db.LoaiVatTus.ToList());
+            if (SearchString != "")
+            {
+                var loaivatTus = db.LoaiVatTus.Where(
+                x => x.TenLoaiVT.ToUpper().Contains(SearchString.ToUpper()));
+                return View(loaivatTus.ToList());
+            }
+            else
+            {
+                return View(db.LoaiVatTus.ToList());
+            }
         }
 
         // GET: LoaiVatTu/Details/5

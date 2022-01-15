@@ -13,10 +13,20 @@ namespace QLCHVT.Controllers
     {
         private QLCHVTEntities db = new QLCHVTEntities();
             // GET: formNK
-        public ActionResult Index()
+        public ActionResult Index(string SearchString = "")
         {
-            var nhapKhoes = db.NhapKhoes.Include(n => n.Nhanvien);
-            return View(nhapKhoes.ToList());
+            if (SearchString != "")
+            {
+                var nhapKhoes = db.NhapKhoes.Where(
+                x => x.MaNK.ToUpper().Contains(SearchString.ToUpper())).Include(n => n.Nhanvien);
+                return View(nhapKhoes.ToList());
+            }
+            else
+            {
+                var nhapKhoes = db.NhapKhoes.Include(n => n.Nhanvien);
+                return View(nhapKhoes.ToList());
+            }
+            
         }
 
         public ActionResult AddOrder()

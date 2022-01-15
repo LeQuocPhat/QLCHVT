@@ -15,10 +15,19 @@ namespace QLCHVT.Controllers
         private QLCHVTEntities db = new QLCHVTEntities();
 
         // GET: VatTu
-        public ActionResult Index()
+        public ActionResult Index(string SearchString = "")
         {
-            var vatTus = db.VatTus.Include(v => v.LoaiVatTu);
-            return View(vatTus.ToList());
+            if (SearchString != "")
+            {
+                var vatTus = db.VatTus.Where(
+                x => x.TenVT.ToUpper().Contains(SearchString.ToUpper())).Include(v => v.LoaiVatTu);
+                return View(vatTus.ToList());
+            }
+            else
+            {
+                var vatTus = db.VatTus.Include(v => v.LoaiVatTu);
+                return View(vatTus.ToList());
+            }
         }
 
         // GET: VatTu/Details/5

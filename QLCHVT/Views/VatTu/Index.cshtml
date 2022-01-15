@@ -5,57 +5,66 @@
 }
 
 
-    <h2>Danh sách vật tư</h2>
+<h2>Danh sách vật tư</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table content-wrapper" style="margin:0">
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm())
+
+{
+    <p></p>
+    <div class="form-group form-inline" style=" width: max-content; margin-left: auto; transform: translateX(-286px)">
+        Tìm theo tên vật tư: @Html.TextBox("SearchString", "", new { @class = "Form-control" })
+        <input type="submit" value="Tìm" class="btn btn-primary" />
+    </div>
+}
+<table class="table content-wrapper" style="margin:0">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenVT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Donvitinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dongia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhVT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiVatTu.TenLoaiVT)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TenVT)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Donvitinh)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dongia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HinhVT)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LoaiVatTu.TenLoaiVT)
-            </th>
-            <th></th>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenVT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donvitinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dongia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HinhVT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiVatTu.TenLoaiVT)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaVT }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaVT }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaVT })
+            </td>
         </tr>
+    }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TenVT)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Donvitinh)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dongia)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HinhVT)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LoaiVatTu.TenLoaiVT)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.MaVT }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.MaVT }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.MaVT })
-                </td>
-            </tr>
-        }
-
-    </table>
+</table>
 
 

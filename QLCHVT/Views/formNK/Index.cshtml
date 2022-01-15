@@ -4,13 +4,26 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Danh sách phiếu nhập</h2>
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm())
+
+{
+    <p></p>
+    <div class="form-group form-inline" style=" width: max-content; margin-left: auto; transform: translateX(-286px)">
+        Tìm theo MNK: @Html.TextBox("SearchString", "", new { @class = "Form-control" })
+        <input type="submit" value="Tìm" class="btn btn-primary" />
+    </div>
+}
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaNK)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.NgayLapPhieu)
         </th>
@@ -22,22 +35,25 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayLapPhieu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nhanvien.HoNV)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaNK }) |
-                @Html.Display("Details")
-                <a class="btn btn-info" href="@Url.Action("Details","ChiTietNhapKho",new {id=item.MaNK})">Details</a> |
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaNK)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NgayLapPhieu)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nhanvien.HoNV)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.MaNK }) |
+        @Html.Display("Details")
+        <a class="btn btn-info" href="@Url.Action("Details","ChiTietNhapKho",new {id=item.MaNK})">Details</a> |
 
-               
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaNK })
-            </td>
-        </tr>
+
+        @Html.ActionLink("Delete", "Delete", new { id = item.MaNK })
+    </td>
+</tr>
     }
 
 </table>

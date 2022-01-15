@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using QLCHVT.Models;
 
 namespace QLCHVT.Controllers
@@ -15,10 +16,14 @@ namespace QLCHVT.Controllers
         private QLCHVTEntities db = new QLCHVTEntities();
 
         // GET: NhapKho
-        public ActionResult Index()
+        public ActionResult Index( int? page)
         {
-            var nhapKhoes = db.NhapKhoes.Include(n => n.Nhanvien);
-            return View(nhapKhoes.ToList());
+            
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);//ko có value lấy là 1
+            var nhapKhoes = db.NhapKhoes.OrderBy(x => x.MaNK);
+            return View(nhapKhoes.ToPagedList(pageNumber, pageSize));//return list sp
+            
         }
 
         // GET: NhapKho/Details/5

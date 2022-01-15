@@ -1,5 +1,6 @@
-﻿@model IEnumerable<QLCHVT.Models.XuatKho>
-
+﻿@model PagedList.IPagedList<QLCHVT.Models.XuatKho>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 @{
     ViewBag.Title = "Index";
 }
@@ -12,40 +13,54 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MaXK)
+            @Html.DisplayName("MaXK")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NgayLapPhieu)
+            @*@Html.DisplayNameFor(model => model.NgayLapPhieu)*@
+            @Html.DisplayName("NgayLapPhieu")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NgayGiaoHang)
+            @*@Html.DisplayNameFor(model => model.Nhanvien.HoNV)*@
+            @Html.DisplayName("NgayGiaoHang")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nhanvien.HoNV)
+            @*@Html.DisplayNameFor(model => model.Nhanvien.HoNV)*@
+            @Html.DisplayName("HoNV")
         </th>
         <th></th>
     </tr>
+    
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaXK)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayLapPhieu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayGiaoHang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nhanvien.HoNV)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaXK }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaXK }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaXK })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaXK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayLapPhieu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayGiaoHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nhanvien.HoNV)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaXK }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaXK }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaXK })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<div>
+    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+    @Html.PagedListPager(Model, Page => Url.Action("Index",
+         new
+         {
+             Page
+         }))
+</div>
