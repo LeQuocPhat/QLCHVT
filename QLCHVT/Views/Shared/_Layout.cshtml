@@ -229,7 +229,7 @@
                             </a>
                         </li>
 
-                        <li class="nav-header">Kho</li>
+                        <li class="nav-header">Thông tin đơn nhập</li>
                         <li class="nav-item">
                             <a href="@Url.Action("Index","NhapKho")" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
@@ -242,24 +242,16 @@
                             <a href="@Url.Action("AddOrder","formNK")" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
-                                    Đơn nhập hàng
+                                    Tạo đơn nhập hàng
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-header">Thông tin đơn bán</li>
                         <li class="nav-item">
                             <a href="@Url.Action("AddOrder","formXK")" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
                                     Tạo đơn bán hàng
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="@Url.Action("Index","TonKho")" class="nav-link">
-                                <i class="nav-icon fas fa-columns"></i>
-                                <p>
-                                    Tồn Kho
                                 </p>
                             </a>
                         </li>
@@ -271,14 +263,33 @@
                                 </p>
                             </a>
                         </li>
-                        @*<li class="nav-item">
-                            <a href="@Url.Action("Index","ChiTietXuatKhoes")" class="nav-link">
+                        <li class="nav-header">Quản lý tồn kho</li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index","TonKho")" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
-                                    Chi tiết xuất kho
+                                    Tồn Kho
                                 </p>
                             </a>
-                        </li>*@
+                        </li>
+                        <li class="nav-header">Báo cáo-Thống kê</li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index","ThongKe")" class="nav-link">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>
+                                    Thống kê
+                                </p>
+                            </a>
+                        </li>
+
+                        @*<li class="nav-item">
+            <a href="@Url.Action("Index","ChiTietXuatKhoes")" class="nav-link">
+                <i class="nav-icon fas fa-columns"></i>
+                <p>
+                    Chi tiết xuất kho
+                </p>
+            </a>
+        </li>*@
 
                         @*register and login*@
 

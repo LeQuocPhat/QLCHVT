@@ -1,0 +1,57 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Report", "ThongKe", FormMethod.Post))
+{
+    
+
+    <div style=" text-align: center">
+        <h1 style=" padding: 50px ; margin: 0px auto">THỐNG KÊ</h1>
+        <div class="container" style="display: flex">
+            <div style="background-color: aqua; width:300px; height:120px; margin-right: 20px">
+                @{decimal TongDoanhThu = ViewBag.TongDoanhThu;
+                    //TongDoanhThu = TongDoanhThu / 1000;
+                }
+                <h3><span style="font-size:60px">$</span>Tổng doanh thu: <i style="margin-left:10px"> @TongDoanhThu.ToString("#,##")</i>VNĐ</h3>
+            </div>
+
+            <div style="background-color: gold; width:300px; height:120px; margin-right: 20px">
+                @{decimal TongVon = ViewBag.TongVon;
+                    //TongDoanhThu = TongDoanhThu / 1000;
+                }
+                <h3><span style="font-size:60px">$</span>Tổng vốn đầu tư: <i style="margin-left:10px"> @TongVon.ToString("#,##")</i>VNĐ</h3>
+            </div>
+
+            <div style="background-color: lawngreen; width: 300px; height: 120px; margin-right: 20px">
+                <h3 style="margin: 30px 0; align-items:center">Tổng đơn xuất kho: <i>@ViewBag.DonHang</i></h3>
+            </div>
+        </div>
+        <div class="container" style="display: flex">
+            <div style="background-color: lawngreen; width: 300px; height: 120px; margin-top:20px;margin-right:20px">
+                <h3 style="margin: 30px 0; align-items:center">Tổng đơn nhập: <i>@ViewBag.NhapKho</i></h3>
+            </div>
+            <div style="background-color: lightgray; width: 300px; height: 120px; margin-top: 20px; margin-right: 20px">
+                <h3 style="margin: 30px 0; align-items:center">Số loại vật tư : <i>@ViewBag.Loai</i></h3>
+            </div>
+            <div style="background-color: lightgray; width: 300px; height: 120px; margin: 20px 0">
+                <h3 style="margin: 30px 0; align-items:center">Số vật tư kinh doanh : <i>@ViewBag.VT</i></h3>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <p>Thống kê doanh thu tháng: @ViewBag.Tong</p>
+            </div>
+            <div class="form-group">
+                <input type="month" name="month" />
+                @*<input type="year" name="year" />*@
+                <button class="btn btn-info" type="submit">Thống kê</button>
+            </div>
+
+        </div>
+    </div>
+}
+
+

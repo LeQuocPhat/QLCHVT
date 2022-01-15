@@ -123,15 +123,26 @@ namespace QLCHVT.Controllers
                 db.SaveChanges();
                 if (itmeTK != null)
                 {
-                    itmeTK.MaVT = itmeTK.MaVT;
+                        itmeTK.MaVT = itmeTK.MaVT;
                     itmeTK.NgayLap = itmeTK.NgayLap;
                     itmeTK.GiaXuat = float.Parse(form["GiaBan"]);
                     itmeTK.SLXuat = itmeTK.SLXuat + item.SoLuongt;
                     int sl = (int)itmeTK.SLNhap;
                     int sx = (int)itmeTK.SLXuat;
-                        itmeTK.SLCuoi = sl - sx;
-                    //itmeTK.SLCuoi = sl - 1;
-                    db.Entry(itmeTK).State = EntityState.Modified;
+                    
+                    itmeTK.SLCuoi = sl - sx;
+                        if (itmeTK.SLCuoi == 0)
+                        {
+                            itmeTK.SLXuat = 0;
+                            itmeTK.SLNhap = 0;
+                            itmeTK.SLCuoi = 0;
+                            db.Entry(itmeTK).State = EntityState.Modified;
+                            db.SaveChanges();
+                            Session["giohang"] = null;
+                            return RedirectToAction("Index");
+                        }
+                        //itmeTK.SLCuoi = sl - 1;
+                        db.Entry(itmeTK).State = EntityState.Modified;
                     db.SaveChanges();
                      Session["giohang"] = null;
                 }

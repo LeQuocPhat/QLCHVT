@@ -4,13 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Danh sách đơn nhập</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaNK)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.NgayLapPhieu)
         </th>
@@ -21,21 +24,24 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayLapPhieu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nhanvien.HoNV)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.MaNK }) |
-            @Html.Display("Details")
-            <a class="btn btn-info" href="@Url.Action("Details","ChiTietNhapKho",new {id=item.MaNK})">Details</a> |
-           
-            @Html.ActionLink("Delete", "Delete", new { id = item.MaNK })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaNK)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NgayLapPhieu)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nhanvien.HoNV)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.MaNK }) |
+        @Html.Display("Details")
+        <a class="btn btn-info" href="@Url.Action("Details","ChiTietNhapKho",new {id=item.MaNK})">Details</a> |
+
+        @Html.ActionLink("Delete", "Delete", new { id = item.MaNK })
+    </td>
+</tr>
 }
 
 </table>
