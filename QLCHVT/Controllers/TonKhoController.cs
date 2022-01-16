@@ -101,7 +101,7 @@ namespace QLCHVT.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TonKho tonKho = db.TonKhoes.Find(id);
+            var tonKho = db.TonKhoes.Where(x=>x.MaVT == id).FirstOrDefault();//get obj firsst or null
             if (tonKho == null)
             {
                 return HttpNotFound();
@@ -114,7 +114,7 @@ namespace QLCHVT.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            TonKho tonKho = db.TonKhoes.Find(id);
+            var tonKho = db.TonKhoes.Where(x => x.MaVT == id).FirstOrDefault();
             db.TonKhoes.Remove(tonKho);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -108,7 +108,7 @@ namespace QLCHVT.Controllers
 
             NK.MaXK = form["MaXK"];
             //NK.MaNV = int.Parse(form["NhanVien"]);
-            NK.MaNV = int.Parse(form["NhanVien"]);
+            NK.MaNV = int.Parse(form["MaNV"]);
             NK.NgayLapPhieu = DateTime.Parse(form["NgayLapPhieu"]);
             NK.NgayGiaoHang = DateTime.Parse(form["NgayGiaoHang"]);
                 db.XuatKhoes.Add(NK);

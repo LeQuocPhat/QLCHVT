@@ -12,10 +12,10 @@
 
         <hr />
         <div class="form-group">
-            @Html.Label("NhanVien", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("MaNV", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("NhanVien", (IEnumerable<SelectListItem>)ViewBag.NhanVien, "Chọn nhân viên", new { @class = "form-control" })
-                @Html.ValidationMessage("NhanVien", "", new { @class = "text-danger" })
+                @Html.DropDownList("MaNV", (IEnumerable<SelectListItem>)ViewBag.NhanVien, "Chọn nhân viên", new { @class = "form-control" })
+                @Html.ValidationMessage("MaNV", "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -90,4 +90,7 @@
 
 }
 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
 
